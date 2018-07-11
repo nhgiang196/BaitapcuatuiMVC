@@ -1,0 +1,125 @@
+﻿@model Model.EF.mymodel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+@using (Html.BeginForm())
+{
+      <table>
+          <tr>
+              <td><label>Người đăng ký (listbox)</label></td>
+              <td>@Html.TextBoxFor(s => s.EID )</td>
+
+          </tr>          
+          <tr>
+              <td><label>Ngày đăng ký (datetimepicker)</label></td>
+              <td>@Html.TextBoxFor(s => s.RDATE)</td>
+
+          </tr>          
+          <tr>
+              <td><label>Khu vực (listbox)</label></td>
+              <td>@Html.TextBoxFor(s => s.AID)</td>
+
+          </tr>          
+          <tr>
+              <td><label>Lý do vào</label></td>
+              <td>@Html.TextBoxFor(s => s.REASON)</td>
+
+          </tr>          
+          <tr>
+              <td><label>Thời gian vào dự kiến</label></td>
+              <td>@Html.TextBoxFor(s => s.ETIMEIN)</td>
+
+          </tr>     
+          <tr>
+              <td><label>Thời gian ra dự kiến</label></td>
+              <td>@Html.TextBoxFor(s => s.ETIMEOUT) </td>
+
+          </tr>        
+          <tr>
+              <td><label>Ghi chú</label></td>
+              <td>@Html.TextBoxFor(s => s.NOTE)</td>
+
+          </tr> 
+                 
+        <tr>
+            <td><label>Tên khách</label></td>
+            <td>@Html.TextBoxFor(s => s.GNAME)</td>
+            
+        </tr>
+          <tr>
+              <td><label>Giới</label></td>
+              <td>@Html.TextBoxFor(s => s.GENDER)</td>
+
+          </tr>
+          
+
+          
+          <tr>
+              <td><label>Công ty</label></td>
+              <td>@Html.TextBoxFor(s => s.COMPANY)</td>
+
+          </tr>
+          <tr>
+              <td><label>Chức vụ</label></td>
+              <td>@Html.TextBoxFor(s => s.POSITION)</td>
+          </tr>          
+                  
+
+          <tr>
+              <td><label>Chứng minh nhân dân</label></td>
+              <td>@Html.TextBoxFor(s => s.IDCARD)</td>
+
+          </tr>       
+          <tr>
+              <td><label>Biển số xe</label></td>
+              <td>@Html.TextBoxFor(s => s.LICENSEPLATE)</td>
+
+          </tr>        
+          <tr>
+              <td><label>Ghi chú đại diện</label></td>
+              <td>@Html.TextBoxFor(s => s.PRESENTATIVE)</td>
+
+          </tr>
+
+        
+    </table>
+
+  
+    <input class="" type="submit"  name="Khoi tao!" value="Khoi tao" />
+}
+    
+        
+        
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- jQuery -->
+<script src="/Content/vendor/jquery/jquery.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="/Content/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!-- Metis Menu Plugin JavaScript -->
+<script src="/Content/vendor/metisMenu/metisMenu.min.js"></script>
+<!-- Morris Charts JavaScript -->
+<script src="/Content/vendor/raphael/raphael.min.js"></script>
+<script src="/Content/vendor/morrisjs/morris.min.js"></script>
+<script src="/Content/data/morris-data.js"></script>
+<!-- Custom Theme JavaScript -->
+<script src="/Content/dist/js/sb-admin-2.js"></script>

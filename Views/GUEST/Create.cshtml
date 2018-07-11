@@ -1,0 +1,134 @@
+﻿@model Model.EF.GUEST
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CRETAE GUEST</h2>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+               
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-6">
+
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+                            <div class="form-group">
+                                <label>RID</label>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label>GID</label>
+                                @Html.TextBoxFor(model => model.GID, new { Value = "", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.GID)
+                            </div>
+
+                            <div class="form-group">
+                                <label>GNAME</label>
+                                @Html.TextBoxFor(model => model.GNAME, null, new { @class = "form-control", Value = "" })
+                                @Html.ValidationMessageFor(model => model.GNAME)
+
+                            </div>
+                            <div class="form-group">
+                                <label>GENDER</label>
+                                @Html.TextBoxFor(model => model.GENDER, null, new { @class = "form-control", Value = "" })
+                                @Html.ValidationMessageFor(model => model.GENDER)
+
+                            </div>
+                            <div class="form-group">
+                                <label>BIRTHYEAR</label>
+
+                                @Html.TextBoxFor(model => model.BIRTHYEAR, new { @class = "form-control", Value = "" })
+                                @Html.ValidationMessageFor(model => model.BIRTHYEAR)
+
+                            </div>
+
+                            <div class="form-group">
+                                <label>COMPANY</label>
+
+                                @Html.TextBoxFor(model => model.COMPANY, null, new { @class = "form-control", Value = "" })
+                                @Html.ValidationMessageFor(model => model.COMPANY)
+
+                            </div>
+
+                            <div class="form-group">
+                                <label>POSITION </label>
+
+                                @Html.TextBoxFor(model => model.POSITION, new { @class = "form-control", Value = "" })
+                                @Html.ValidationMessageFor(model => model.POSITION)
+
+                            </div>
+
+                            <div class="form-group">
+                                <label>PHONE</label>
+
+                                @Html.TextBoxFor(model => model.PHONE, new { @class = "form-control", Value = "" })
+                                @Html.ValidationMessageFor(model => model.PHONE)
+
+                            </div>
+
+                            <div class="form-group">
+                                <label>EMAIL</label>
+
+                                @Html.TextBoxFor(model => model.EMAIL, new { @class = "form-control", Value = "" })
+                                @Html.ValidationMessageFor(model => model.EMAIL)
+
+                            </div>
+
+                            <div class="form-group">
+                                <label>IDCARD</label>
+
+                                @Html.TextBoxFor(model => model.IDCARD, new { @class = "form-control", Value = "" })
+                                @Html.ValidationMessageFor(model => model.IDCARD)
+
+                            </div>
+                            <div class="form-group">
+                                <label>LICENSEPLATE</label>
+
+                                @Html.TextBoxFor(model => model.LICENSEPLATE, null, new { @class = "form-control", Value = "" })
+                                @Html.ValidationMessageFor(model => model.LICENSEPLATE)
+
+                            </div>
+                            <div class="form-group">
+                                <label>NOTE</label>
+
+                                @Html.TextBoxFor(model => model.NOTE, new { @class = "form-control", Value = "" })
+                                @Html.ValidationMessageFor(model => model.NOTE)
+
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Create" class="btn btn-primary btn-lg btn-block" />
+                                </div>
+                            </div>
+                            <br />
+                            <br />
+                            <div class="form-group" style="margin-top:10px">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <a class="btn btn-primary btn-lg btn-block" href="/Home/Index">Close</a>
+                                </div>
+                            </div>
+                        }
+                        <br />
+                        <br />
+                        <br />
+                        <div>
+                           @* <a class="btn btn-primary btn-lg btn-block" href="/Home/Index">Back to Home</a>*@
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
