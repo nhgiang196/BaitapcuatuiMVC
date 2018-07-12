@@ -333,6 +333,7 @@
     <Content Include="assets\vendor\font-awesome\scss\_stacked.scss" />
     <Content Include="assets\vendor\font-awesome\scss\_variables.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\homei-index-js.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
