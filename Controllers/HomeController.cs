@@ -22,11 +22,21 @@ namespace BaitapcuatuiMVC.Controllers
 
         }
 
-        public ActionResult IndexADD()
+     
+        public ActionResult GetById(string id)
         {
-            ViewBag.GUEST = db.GUESTs.ToList();
+            try
+            {
 
-            return View();
+            
+            var data = db.GUEST_REGISTRATION.ToList().Where(x=>x.RID ==id).FirstOrDefault();
+            return Json(data, JsonRequestBehavior.AllowGet);
+                }
+            catch (Exception e)
+            {}
+
+            return null;
+
 
 
         }

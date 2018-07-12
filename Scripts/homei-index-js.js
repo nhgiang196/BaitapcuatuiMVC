@@ -1,10 +1,21 @@
 ﻿
 $(document).ready(function () {
-    $("#editkhach").click(function () {
-        alert("THem khach");
+
+
+    $("btnthemkhach").click(function () {
+        alert('ab');
+
     });
+  
+
+
+  
+
+
+
+
 });
 
 
-
+$('#editkhach').click(function () { alert('aaaa') })
     
