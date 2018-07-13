@@ -99,7 +99,7 @@
                         <div class="form-group">
                             <label>RID</label>
 
-                            @Html.TextBoxFor(model => model.rid, new {@id="txtrid", @class = "form-control" })
+                            @Html.TextBoxFor(model => model.rid, new {@id="txtrid", @class = "form-control" } )
                             @Html.ValidationMessageFor(model => model.rid)
 
                         </div>
@@ -121,10 +121,8 @@
 
                         <div class="form-group">
                             <label>REASON</label>
-
                             @Html.TextBoxFor(model => model.REASON, new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.REASON)
-
                         </div>
 
                         <div class="form-group">
@@ -140,11 +138,7 @@
 
                             @Html.TextBoxFor(model => model.ETIMEOUT, new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.ETIMEOUT)
-
                         </div>
-
-                        
-
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-8">
                                 
@@ -179,31 +173,27 @@
     //}
 </script>*@
 
-@*<script src="~/Scripts/homei-index-js.js"></script>*@
+@*</script><script src="~/Scripts/homei-index-js.js"></script>*@
 <script>
     $(document).ready(function () {
-       
+
     })
     function editGuest(id) {
         $.ajax({
-            url: 'Home/GetById/' +id,
+            url: 'Home/GetById/' + id,
             type: 'POST',
             dataType: 'JSON',
-            
-        }).done(function(data) {
-            alert(stringify(data));
-        });
-            
-        //$('#myModal').show();
 
+        }).done(function (data) {
+            //alert(JSON.stringify(data));
+            $('#myModal').modal('show');
+            $('#txtrid').val(data.RID)
+        });
     }
     function Msg() {
         alert('aaaa');
     }
-
-   
 </script>
-
 @*function addFields() {
     var number = document.getElementById("last").value;
     var html = '<tr>

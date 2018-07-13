@@ -25,18 +25,18 @@ namespace BaitapcuatuiMVC.Controllers
      
         public ActionResult GetById(string id)
         {
-            try
-            {
+            var currentEntity = db.GUEST_REGISTRATION.Where(x => x.RID == id);
+            var eventList = from e in currentEntity
+                            select new
+                            {
+                                RID = e.RID,
+                                EID = e.EID
+                           
 
-            
-            var data = db.GUEST_REGISTRATION.ToList().Where(x=>x.RID ==id).FirstOrDefault();
-            return Json(data, JsonRequestBehavior.AllowGet);
-                }
-            catch (Exception e)
-            {}
-
-            return null;
-
+                            };
+            // phải trả về eventList.FirstOrDefault(); vì eventList.ToArray(); trả về một list
+            var rows = eventList.FirstOrDefault();
+            return Json(rows, JsonRequestBehavior.AllowGet);
 
 
         }
