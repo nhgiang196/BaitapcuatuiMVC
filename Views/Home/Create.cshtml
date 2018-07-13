@@ -4,122 +4,132 @@
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="container">
-@using (Html.BeginForm())
-{
-      <table>
-          <tr>
-              <td><label>Người đăng ký (listbox)</label></td>
-              <td>@Html.TextBoxFor(s => s.EID )</td>
+@*<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css" />
+<link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js" />*@
+@*<script>
+    $(function () { // will trigger when the document is ready
+        $('.datepicker').datepicker(); //Initialise any date pickers
+    });
+</script>*@
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+    Create
+</button>
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="width:150%">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">This is Modal</h4>
+            </div>
+            <div class="modal-body">
 
-          </tr>          
-          <tr>
-              <td><label>Ngày đăng ký (datetimepicker)</label></td>
-              <td>@Html.TextBoxFor(s => s.RDATE)</td>
 
-          </tr>          
-          <tr>
-              <td><label>Khu vực (listbox)</label></td>
-              <td>@Html.TextBoxFor(s => s.AID)</td>
+                <div class="row">
 
-          </tr>          
-          <tr>
-              <td><label>Lý do vào</label></td>
-              <td>@Html.TextBoxFor(s => s.REASON)</td>
 
-          </tr>          
-          <tr>
-              <td><label>Thời gian vào dự kiến</label></td>
-              <td>@Html.TextBoxFor(s => s.ETIMEIN)</td>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
 
-          </tr>     
-          <tr>
-              <td><label>Thời gian ra dự kiến</label></td>
-              <td>@Html.TextBoxFor(s => s.ETIMEOUT) </td>
+                        <div class="form-group" style="padding-left:15px; padding-right:15px;" style="padding-left:15px; padding-right:15px;">
+                            <label>Người đăng ký </label>
 
-          </tr>        
-          <tr>
-              <td><label>Ghi chú</label></td>
-              <td>@Html.TextBoxFor(s => s.NOTE)</td>
+                            @Html.ListBoxFor(s => s.EID, null, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group" style="padding-left:15px; padding-right:15px;">
+                            <label>Ngày đăng ký </label>
 
-          </tr> 
-                 
-        <tr>
-            <td><label>Tên khách</label></td>
-            <td>@Html.TextBoxFor(s => s.GNAME)</td>
-            
-        </tr>
-          <tr>
-              <td><label>Giới</label></td>
-              <td>@Html.TextBoxFor(s => s.GENDER)</td>
+                            @Html.TextBoxFor(s => s.RDATE, new { @class = "form-control datepicker " })
+                        </div>
+                        <div class="form-group" style="padding-left:15px; padding-right:15px;">
+                            <label>Khu vực</label>
 
-          </tr>
-          
 
-          
-          <tr>
-              <td><label>Công ty</label></td>
-              <td>@Html.TextBoxFor(s => s.COMPANY)</td>
+                            @Html.DropDownListFor(s => s.AID, null, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group" style="padding-left:15px; padding-right:15px;">
+                            <label>Lý do vào</label>
 
-          </tr>
-          <tr>
-              <td><label>Chức vụ</label></td>
-              <td>@Html.TextBoxFor(s => s.POSITION)</td>
-          </tr>          
-                  
+                            @Html.TextBoxFor(s => s.REASON, null, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group" style="padding-left:15px; padding-right:15px;">
+                            <label>Thời gian vào dự kiến</label>
 
-          <tr>
-              <td><label>Chứng minh nhân dân</label></td>
-              <td>@Html.TextBoxFor(s => s.IDCARD)</td>
 
-          </tr>       
-          <tr>
-              <td><label>Biển số xe</label></td>
-              <td>@Html.TextBoxFor(s => s.LICENSEPLATE)</td>
+                            @Html.TextBoxFor(s => s.ETIMEIN, null, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group" style="padding-left:15px; padding-right:15px;">
+                            <label>Thời gian ra dự kiến</label>
 
-          </tr>        
-          <tr>
-              <td><label>Ghi chú người đại diện</label></td>
-              <td>@Html.TextBoxFor(s => s.PRESENTATIVE)</td>
+                            @Html.TextBoxFor(s => s.ETIMEOUT, null, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group" style="padding-left:15px; padding-right:15px;">
+                            <label>Ghi chú</label>
 
-          </tr>
+                            @Html.TextBoxFor(s => s.NOTE, null, new { @class = "form-control" })
 
+                        </div>     
+                        <div class="form-group" style="padding-left:15px; padding-right:15px;">
+                            <label>Tên khách</label>
+
+                            @Html.TextBoxFor(s => s.GNAME, null, new { @class = "form-control" })
+
+                        </div>
+                        <div class="form-group" style="padding-left:15px; padding-right:15px;">
+                            <label>Giới</label>
+
+                            @Html.TextBoxFor(s => s.GENDER, null, new { @class = "form-control" })
+
+                        </div>
+                        <div class="form-group" style="padding-left:15px; padding-right:15px;">
+                            <label>Công ty</label>
+
+                            @Html.TextBoxFor(s => s.COMPANY, null, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group" style="padding-left:15px; padding-right:15px;">
+                            <label>Chức vụ</label>
+
+                            @Html.TextBoxFor(s => s.POSITION, null, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group" style="padding-left:15px; padding-right:15px;">
+                            <label>Chứng minh nhân dân:</label>
+
+                            @Html.TextBoxFor(s => s.IDCARD, null, new { @class = "form-control" })
+
+                        </div>
+                        <div class="form-group" style="padding-left:15px; padding-right:15px;">
+                            <label>Biển số xe:</label>
+
+                            @Html.TextBoxFor(s => s.LICENSEPLATE, null, new { @class = "form-control" })
+
+
+                        </div>
+                        <div class="form-group" style="padding-left:15px; padding-right:15px;">
+                            <label>Ghi chú người đại diện</label>
+
+                            @Html.TextBoxFor(s => s.PRESENTATIVE, null, new { @class = "form-control" })
+
+                        </div>
+                        
+                    }
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row" style="">
+                    <button type="button" class="btn btn-warning" data-dismiss="modal" style="margin-right:600px">Back to home</button>
+               
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                
+                    <input class="btn btn-primary" type="submit" name="Khoi tao!" value="Khoi tao" style="margin-right:10px" />
+
+                </div>
+        </div>
         
-    </table>
-
-  
-    <input class="" type="submit"  name="Khoi tao!" value="Khoi tao" />
-}
-    
-        
-        
-    
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
 
 <!-- jQuery -->
-<script src="/Content/vendor/jquery/jquery.min.js"></script>
-<!-- Bootstrap Core JavaScript -->
-<script src="/Content/vendor/bootstrap/js/bootstrap.min.js"></script>
-<!-- Metis Menu Plugin JavaScript -->
-<script src="/Content/vendor/metisMenu/metisMenu.min.js"></script>
-<!-- Morris Charts JavaScript -->
-<script src="/Content/vendor/raphael/raphael.min.js"></script>
-<script src="/Content/vendor/morrisjs/morris.min.js"></script>
-<script src="/Content/data/morris-data.js"></script>
-<!-- Custom Theme JavaScript -->
-<script src="/Content/dist/js/sb-admin-2.js"></script>
+    </div>
+
