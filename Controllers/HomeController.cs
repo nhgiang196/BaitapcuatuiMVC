@@ -23,13 +23,22 @@ namespace BaitapcuatuiMVC.Controllers
 
         }
 
-        
+    
+        public ActionResult GetById(string id)
 
-        public ActionResult IndexADD()
         {
-            ViewBag.GUEST = db.GUESTs.ToList();
+            var currentEntity = db.GUEST_REGISTRATION.Where(x => x.RID == id);
+            var eventList = from e in currentEntity
+                            select new
+                            {
+                                RID = e.RID,
+                                EID = e.EID
+                           
 
-            return View();
+                            };
+            // phải trả về eventList.FirstOrDefault(); vì eventList.ToArray(); trả về một list
+            var rows = eventList.FirstOrDefault();
+            return Json(rows, JsonRequestBehavior.AllowGet);
 
 
         }

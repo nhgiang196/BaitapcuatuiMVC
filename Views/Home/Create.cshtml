@@ -4,6 +4,7 @@
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<<<<<<< HEAD
 @*<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css" />
 <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js" />*@
@@ -108,6 +109,111 @@
                         </div>
                         <div class="form-group" style="padding-left:15px; padding-right:15px;">
                             <label>Ghi chú người đại diện</label>
+=======
+<div class="container">
+@using (Html.BeginForm())
+{
+      <table>
+          <tr>
+              <td><label>Người đăng ký (listbox):</label></td>
+              <td>@Html.TextBoxFor(s => s.EID )</td>
+
+          </tr>          
+          <tr>
+              <td><label>Ngày đăng ký (datetimepicker)</label></td>
+              <td>@Html.TextBoxFor(s => s.RDATE)</td>
+
+          </tr>          
+          <tr>
+              <td><label>Khu vực (listbox)</label></td>
+              <td>@Html.TextBoxFor(s => s.AID)</td>
+
+          </tr>          
+          <tr>
+              <td><label>Lý do vào</label></td>
+              <td>@Html.TextBoxFor(s => s.REASON)</td>
+
+          </tr>          
+          <tr>
+              <td><label>Thời gian vào dự kiến</label></td>
+              <td>@Html.TextBoxFor(s => s.ETIMEIN)</td>
+
+          </tr>     
+          <tr>
+              <td><label>Thời gian ra dự kiến</label></td>
+              <td>@Html.TextBoxFor(s => s.ETIMEOUT) </td>
+
+          </tr>        
+          <tr>
+              <td><label>Ghi chú</label></td>
+              <td>@Html.TextBoxFor(s => s.NOTE)</td>
+
+          </tr> 
+                 
+        <tr>
+            <td><label>Tên khách</label></td>
+            <td>@Html.TextBoxFor(s => s.GNAME)</td>
+            
+        </tr>
+          <tr>
+              <td><label>Giới</label></td>
+              <td>@Html.TextBoxFor(s => s.GENDER)</td>
+
+          </tr>
+          
+
+          
+          <tr>
+              <td><label>Công ty</label></td>
+              <td>@Html.TextBoxFor(s => s.COMPANY)</td>
+
+          </tr>
+          <tr>
+              <td><label>Chức vụ</label></td>
+              <td>@Html.TextBoxFor(s => s.POSITION)</td>
+          </tr>          
+                  
+
+          <tr>
+              <td><label>Chứng minh nhân dân</label></td>
+              <td>@Html.TextBoxFor(s => s.IDCARD)</td>
+
+          </tr>       
+          <tr>
+              <td><label>Biển số xe</label></td>
+              <td>@Html.TextBoxFor(s => s.LICENSEPLATE)</td>
+
+          </tr>        
+          <tr>
+              <td><label>Ghi chú người đại diện</label></td>
+              <td>@Html.TextBoxFor(s => s.PRESENTATIVE)</td>
+
+          </tr>
+
+        
+    </table>
+
+  
+    <input class="" type="submit"  name="Khoi tao!" value="Khoi tao" />
+}
+    
+        
+        
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 44aa6da0cc93809807eb5dbfec39f15d29e92f18
 
                             @Html.TextBoxFor(s => s.PRESENTATIVE, null, new { @class = "form-control" })
 
