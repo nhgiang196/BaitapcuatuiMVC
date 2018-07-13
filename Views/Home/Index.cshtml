@@ -56,8 +56,8 @@
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
                                         Thêm khách
                                     </button>
-                                    <button class="btn btn-success"><i class="glyphicon glyphicon-edit" id="editkhach"></i>Edit</button>
-                                    <button class="btn btn-danger"><i class=" glyphicon glyphicon-trash" onclick="Msg()"></i>Remove</button>
+                                    <button class="btn btn-success" onclick="editGuest('@item.RID.ToString()')"><i class="glyphicon glyphicon-edit" id="editkhach"></i>Edit</button>
+                                    <button class="btn btn-danger"><i class=" glyphicon glyphicon-trash"></i>Remove</button>                                 
                                 </td>
                             </tr>
                         }
@@ -79,15 +79,18 @@
    Create
 </button>
 
+
+
 <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">This is Modal</h4>
+                <h4 class="modal-title">Thêm khách</h4>
             </div>
             <div class="modal-body">
-                <div class="row">
+                <div class="row" style="padding-left: 8px;padding-right:8px; ">
+
 
 
                     @using (Html.BeginForm())
@@ -95,12 +98,18 @@
                         @Html.AntiForgeryToken()
                         @Html.ValidationSummary(true)
 
-
                         <div class="form-group">
-                            <label>RDATE</label>
+                            <label>RID</label>
 
-                            @Html.TextBoxFor(model => model.RDATE, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.RDATE)
+                            @Html.TextBoxFor(model => model.rid, new {@id="txtrid", @class = "form-control" } )
+                            @Html.ValidationMessageFor(model => model.rid)
+
+                        </div>
+                        <div class="form-group">
+                            <label>EID</label>
+
+                            @Html.TextBoxFor(model => model.EID, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.EID)
 
                         </div>
 
@@ -114,10 +123,8 @@
 
                         <div class="form-group">
                             <label>REASON</label>
-
                             @Html.TextBoxFor(model => model.REASON, new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.REASON)
-
                         </div>
 
                         <div class="form-group">
@@ -133,41 +140,15 @@
 
                             @Html.TextBoxFor(model => model.ETIMEOUT, new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.ETIMEOUT)
-
                         </div>
-
                         <div class="form-group">
-                            <label>RSTATEID</label>
-
-                            @Html.TextBoxFor(model => model.RSTATEID, null, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.RSTATEID)
-
-                        </div>
-
-                        <div class="form-group">
-                            <label>NOTE</label>
-
-                            @Html.TextBoxFor(model => model.NOTE, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.NOTE)
-
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" name="Create" value=" create" class="btn btn-primary btn-lg btn-block" />
+                            <div class="col-md-offset-2 col-md-8">
+                                
+                                <button  type="submit" id="btnthemkhach" class="btn btn-primary btn-lg btn-block" >Thêm khách</button>
                             </div>
                         </div>
                     }
-                    <br />
-                    <br />
-                    <br />
-                    <div>
-                        <a class="btn btn-primary btn-lg btn-block" href="/Home/Index">Back to Home</a>
-                    </div>
-
-
                 </div>
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -176,6 +157,13 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+
+
+
+
+
+
 @*<script>
     $(document).ready(function () {
       
@@ -193,10 +181,28 @@
 
     //}
 </script>*@
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="~/Scripts/home-index-js.js"></script>
 
+@*</script><script src="~/Scripts/homei-index-js.js"></script>*@
+<script>
+    $(document).ready(function () {
 
+    })
+    function editGuest(id) {
+        $.ajax({
+            url: 'Home/GetById/' + id,
+            type: 'POST',
+            dataType: 'JSON',
+
+        }).done(function (data) {
+            //alert(JSON.stringify(data));
+            $('#myModal').modal('show');
+            $('#txtrid').val(data.RID)
+        });
+    }
+    function Msg() {
+        alert('aaaa');
+    }
+</script>
 @*function addFields() {
     var number = document.getElementById("last").value;
     var html = '<tr>
