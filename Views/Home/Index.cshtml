@@ -196,6 +196,31 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="~/Scripts/home-index-js.js"></script>
 
+<script>
+    $(document).ready(function () {
+
+    })
+    function editGuest(id) {
+        $.ajax({
+            url: 'Home/GetById/' + id,
+            type: 'POST',
+            dataType: 'JSON',
+
+        }).done(function (data) {
+            alert(stringify(data));
+        });
+
+        //$('#myModal').show();
+
+    }
+    function Msg() {
+        alert('aaaaaaaaa');
+    }
+
+
+</script>
+
+
 
 @*function addFields() {
     var number = document.getElementById("last").value;
