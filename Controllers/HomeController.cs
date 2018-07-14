@@ -16,17 +16,29 @@ namespace BaitapcuatuiMVC.Controllers
         public ActionResult Index()
         {
             ViewBag.GUEST_REGISTRATION = db.GUEST_REGISTRATION.ToList();
+           
 
             return View();
 
 
         }
 
-        public ActionResult IndexADD()
-        {
-            ViewBag.GUEST = db.GUESTs.ToList();
+    
+        public ActionResult GetById(string id)
 
-            return View();
+        {
+            var currentEntity = db.GUEST_REGISTRATION.Where(x => x.RID == id);
+            var eventList = from e in currentEntity
+                            select new
+                            {
+                                RID = e.RID,
+                                EID = e.EID
+                           
+
+                            };
+            // phải trả về eventList.FirstOrDefault(); vì eventList.ToArray(); trả về một list
+            var rows = eventList.FirstOrDefault();
+            return Json(rows, JsonRequestBehavior.AllowGet);
 
 
         }
@@ -35,9 +47,14 @@ namespace BaitapcuatuiMVC.Controllers
         public ActionResult Create()
         {
             var x = new mymodel();
-            
+            ListBoxEID();
+            DropdowListAID();
             return View(x);
         }
+
+       
+
+       
         [HttpPost]
         public ActionResult Create (mymodel model )
         {
@@ -57,7 +74,7 @@ namespace BaitapcuatuiMVC.Controllers
                     db.CUD_GUEST("insert", rid, model.GNAME, model.GENDER, model.BIRTHYEAR, model.COMPANY, model.POSITION, model.PHONE, model.EMAIL, model.IDCARD, model.LICENSEPLATE, model.PRESENTATIVE); 
                    
                 }
-                
+                //tést
                
             }
             catch(Exception ex){
@@ -72,8 +89,16 @@ namespace BaitapcuatuiMVC.Controllers
             //return View("");
         }
 
-        
+        public void DropdowListAID(string selectedAID = null)
+        {
+            ViewBag.AID = new SelectList(db.AREAS.ToList(), "AID", "AREANAME");
+        }
+        public void ListBoxEID(string selectedEID = null)
+        {
+            ViewBag.EID = new SelectList(db.EMPLOYEES.ToList(), "EID", "NAME");
+        }
 
+        
         public void DropdowlistEID(string selectedEID = null)
         {
             ViewBag.EID = new SelectList(db.EMPLOYEES.ToList(), "EID", "NAME");
