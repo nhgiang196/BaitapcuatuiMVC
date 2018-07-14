@@ -4,6 +4,7 @@
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<<<<<<< HEAD
 <div class="container">
 @using (Html.BeginForm())
 {
@@ -107,6 +108,112 @@
 
 
 
+=======
+@*<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css" />
+<link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js" />*@
+@*<script>
+    $(function () { // will trigger when the document is ready
+        $('.datepicker').datepicker(); //Initialise any date pickers
+    });
+</script>*@
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+    Create
+</button>
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="width:150%">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">This is Modal</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <div class="row">
+
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+
+                        <div class="form-group" style="padding-left:15px; padding-right:15px;" style="padding-left:15px; padding-right:15px;">
+                            <label>Người đăng ký </label>
+
+                            @Html.ListBoxFor(s => s.EID, null, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group" style="padding-left:15px; padding-right:15px;">
+                            <label>Ngày đăng ký </label>
+
+                            @Html.TextBoxFor(s => s.RDATE, new { @class = "form-control datepicker " })
+                        </div>
+                        <div class="form-group" style="padding-left:15px; padding-right:15px;">
+                            <label>Khu vực</label>
+
+
+                            @Html.DropDownListFor(s => s.AID, null, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group" style="padding-left:15px; padding-right:15px;">
+                            <label>Lý do vào</label>
+
+                            @Html.TextBoxFor(s => s.REASON, null, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group" style="padding-left:15px; padding-right:15px;">
+                            <label>Thời gian vào dự kiến</label>
+
+
+                            @Html.TextBoxFor(s => s.ETIMEIN, null, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group" style="padding-left:15px; padding-right:15px;">
+                            <label>Thời gian ra dự kiến</label>
+
+                            @Html.TextBoxFor(s => s.ETIMEOUT, null, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group" style="padding-left:15px; padding-right:15px;">
+                            <label>Ghi chú</label>
+
+                            @Html.TextBoxFor(s => s.NOTE, null, new { @class = "form-control" })
+
+                        </div>     
+                        <div class="form-group" style="padding-left:15px; padding-right:15px;">
+                            <label>Tên khách</label>
+
+                            @Html.TextBoxFor(s => s.GNAME, null, new { @class = "form-control" })
+
+                        </div>
+                        <div class="form-group" style="padding-left:15px; padding-right:15px;">
+                            <label>Giới</label>
+
+                            @Html.TextBoxFor(s => s.GENDER, null, new { @class = "form-control" })
+
+                        </div>
+                        <div class="form-group" style="padding-left:15px; padding-right:15px;">
+                            <label>Công ty</label>
+
+                            @Html.TextBoxFor(s => s.COMPANY, null, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group" style="padding-left:15px; padding-right:15px;">
+                            <label>Chức vụ</label>
+
+                            @Html.TextBoxFor(s => s.POSITION, null, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group" style="padding-left:15px; padding-right:15px;">
+                            <label>Chứng minh nhân dân:</label>
+
+                            @Html.TextBoxFor(s => s.IDCARD, null, new { @class = "form-control" })
+
+                        </div>
+                        <div class="form-group" style="padding-left:15px; padding-right:15px;">
+                            <label>Biển số xe:</label>
+
+                            @Html.TextBoxFor(s => s.LICENSEPLATE, null, new { @class = "form-control" })
+
+
+                        </div>
+                        <div class="form-group" style="padding-left:15px; padding-right:15px;">
+                            <label>Ghi chú người đại diện</label>
+>>>>>>> parent of 9738795... Merge branch 'friend-branch' of https://github.com/nhgiang196/BaitapcuatuiMVC into friend-branch
 
 
 

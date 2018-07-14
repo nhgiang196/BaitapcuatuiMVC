@@ -22,6 +22,11 @@ namespace BaitapcuatuiMVC.Controllers
 
         }
 
+<<<<<<< HEAD
+=======
+        
+
+>>>>>>> parent of 9738795... Merge branch 'friend-branch' of https://github.com/nhgiang196/BaitapcuatuiMVC into friend-branch
         public ActionResult IndexADD()
         {
             ViewBag.GUEST = db.GUESTs.ToList();
